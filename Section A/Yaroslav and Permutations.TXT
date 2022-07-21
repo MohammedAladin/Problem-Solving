@@ -1,0 +1,43 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	
+	int n; 
+	cin >> n;
+	int* arr = new int[n];
+	int freq[1001] = {0};
+
+	for (int i = 0; i < n; i++) {
+			cin >> arr[i];
+			freq[arr[i]]++;
+	}
+	int max = *max_element(freq, freq + 1001);
+	if (n == 1)
+		cout << "YES";
+	else {
+	if (max <= ceilfunc((float)n / 2))
+			cout << "YES";
+		else
+			cout << "NO";
+	}
+	
+
+}
