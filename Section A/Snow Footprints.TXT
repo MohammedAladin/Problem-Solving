@@ -1,0 +1,44 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	
+	int n, rC = 0, lC = 0;
+	string str;
+
+	cin >> n>>str;
+	for (int i = 0; i < n;i++) {
+		if (str[i] == 'R')
+			rC++;
+		else if (str[i] == 'L')
+			lC++;
+	}
+	
+	if (rC > 0 && lC == 0)
+		cout << str.find('R') + 1 << " " << str.rfind('R') +2;
+	else if(lC > 0 && rC == 0)
+		cout << str.rfind('L') + 1 << " " << str.find('L') ;
+	else
+		cout << str.find('R') + 1 << " " << str.find('L');
+
+		
+	
+
+}
