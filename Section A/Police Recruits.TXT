@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+    int n;
+    int crimesCnt=0;
+    int policeCnt=0;
+    cin>>n;
+    int* arr= new int[n];
+
+    for(int i=0; i<n; i++){
+        cin >> arr[i];
+        if(arr[i]==-1){
+            crimesCnt++;
+            if(policeCnt>0){
+                crimesCnt--;
+                policeCnt--;
+            }
+        }
+        else {
+            policeCnt+=arr[i];
+        }
+    }
+    cout<<crimesCnt;
+}

@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+#include <string>
+#include <vector>
+#include <algorithm>
+
+int main() {
+	int top, bottom,n;
+	cin >> n >> top;
+	bool flag = false;
+	bottom = abs(7 - top);
+	int** dices = new int* [n];
+	for (int i = 0; i < n;i++) {
+		dices[i] = new int[2];
+		cin >> dices[i][0] >> dices[i][1];
+	}
+	for (int i = 0; i < n;i++) {
+		if (dices[i][0]!=top && dices[i][1]!=top && 
+			abs(dices[i][0] - 7 ) != top && abs(dices[i][1] - 7 ) != top) continue;
+		else {
+			flag = true;
+			break;
+		}
+	}
+	if (flag)
+		cout << "NO";
+	else
+		cout << "YES";
+}

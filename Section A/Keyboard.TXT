@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+    string keyboard = "qwertyuiopasdfghjkl;zxcvbnm,./";
+    char direction;
+    cin>> direction;
+    string str, result;
+    cin>>str;
+
+    for(int i=0; i<str.length(); i++){
+        if(direction=='R'){
+            for(int j=0; j<keyboard.length(); j++){
+                if(str[i]==keyboard[j]){
+                    result+=keyboard[j-1];
+                    break;
+                }
+            }
+        }
+        else{
+            for(int j=0; j<keyboard.length(); j++){
+                if(str[i]==keyboard[j]){
+                    result+=keyboard[j+1];
+                    break;
+                }
+            }
+        }
+    }
+    cout<<result;
+}
+
+
+

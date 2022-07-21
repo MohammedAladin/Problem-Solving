@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+    int n,t,k,d;
+    cin>>n>>t>>k>>d;
+    float firstOven = (float)n/k*t;
+
+    int totalTime=0;
+    while (n>0){
+        totalTime++;
+        if(totalTime % t==0){
+            n-=k;
+        }
+        if(totalTime>d){
+            if(totalTime % t+d==d || totalTime==t+d ){
+                n-=k;
+            }
+        }
+    }
+    if(firstOven>totalTime)
+        cout<<"YES"<<endl;
+    else
+        cout<<"NO"<<endl;
+
+}

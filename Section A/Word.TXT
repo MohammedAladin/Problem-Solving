@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+    int upperCounter=0;
+    int lowerCounter=0;
+  string test;
+  cin>>test;
+  for(int i=0; i<test.length(); i++){
+      if(isupper(test[i])){
+         upperCounter++;
+      }
+  }
+  lowerCounter=test.length()-upperCounter;
+  if(upperCounter>lowerCounter){
+      transform(begin(test), end(test), begin(test), :: toupper);
+      cout<<test;
+  }
+  else {
+      transform(begin(test), end(test), begin(test), ::tolower);
+      cout<<test;
+  }
+
+}

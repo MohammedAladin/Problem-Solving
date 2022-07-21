@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+    int n,m;
+    char color;
+    cin>>n>>m;
+    bool isColored = false;
+    for(int i=0; i<n; i++){
+
+        for(int j=0; j<m; j++){
+            cin>>color;
+            if(color == 'C'|| color == 'M'|| color == 'Y')
+            {
+                isColored =true;
+            }
+        }
+    }
+    if(!isColored)
+        cout<<"#Black&White";
+    else
+        cout<<"#Color";
+
+}
+
+

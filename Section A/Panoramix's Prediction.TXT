@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+bool solver(int k) {
+	if (k == 0 || k == 1) {
+		return false;
+	}
+	for (int i = 2; i <= (k/2); i++) {
+		if (k % i == 0)
+			return false;
+	}
+	return true;
+}
+int main() {
+	int n, m;
+	cin >> n >> m;
+	
+	int k = n;
+	while (true) {
+		k++;
+		if (solver(k)){
+			if (k == m) {
+				cout << "YES";
+				break;
+			}
+			else
+			{
+				cout << "NO";
+				break;
+			}
+
+		}
+	}
+	
+}
+
+

@@ -1,0 +1,30 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+int main() {
+	string str;
+	int n;
+	cin >> n;
+	cin >> str;
+	
+	int* arr = new int[n];
+	for (int i = 0; i < n; i++) {
+		cin >> arr[i];
+	}
+	long long min = 1000000000;
+
+	for (int i = 0; i < n-1;i++) {
+		if ((str[i] == 'R') && (str[i+1]=='L'))
+		{
+			int time = (arr[i + 1] - arr[i]) / 2;
+			if (min > time)
+				min = time;
+		}
+	}
+	if (min == 1000000000)
+		cout << -1;
+	else
+		cout << min;
+}

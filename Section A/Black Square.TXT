@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+int calories[4];
+int total=0;
+string strips;
+for(int i=0; i<4; i++){
+    cin>>calories[i];
+}
+cin>>strips;
+    for(int i=0; i<strips.length(); i++){
+        if(strips[i]=='1'){
+            total+=calories[0];
+        }
+        else if(strips[i]=='2'){
+            total+=calories[1];
+        }
+        else if(strips[i]=='3'){
+            total+=calories[2];
+        }
+        else
+            total+=calories[3];
+    }
+    cout<<total;
+}

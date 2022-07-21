@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+int n,d;
+long long x;
+cin>>n>>x;
+int kids = 0;
+char operation;
+for(int i=0; i<n; i++) {
+    cin >> operation >> d;
+    if (operation == '+'){
+        x+=(long long )d;
+    }
+    else{
+        if(d>x)
+            kids++;
+        else
+            x-=d;
+    }
+}
+cout<<x<<" "<<kids;
+}

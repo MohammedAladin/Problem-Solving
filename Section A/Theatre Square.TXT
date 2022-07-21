@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+long long solver(int n, int m, int a) {
+   
+    long long ans=1;
+    if (n / a == (double)n / a) {
+        ans *= (n / a);
+    }
+    else {
+        ans*= ((n / a) + 1) ;
+    }
+    if (m/ a == (double)m / a) {
+        ans *= (m / a);
+    }
+    else {
+        ans *= ((m / a) + 1);
+    }
+    return ans;
+}
+int main() {
+   
+    long long  n,m,a;
+    cin >> n>>m>>a;
+    cout << solver(n, m, a);
+}
+
+

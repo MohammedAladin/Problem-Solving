@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+int n;
+cin>>n;
+string longWord;
+
+    while (n--){
+    cin>>longWord;
+    if(longWord.length()>10){
+        cout<<longWord[0]<<longWord.length()-2<<longWord[longWord.length()-1]<<endl;
+    }
+    else
+        cout<<longWord<<endl;
+
+}
+    return 0;
+}

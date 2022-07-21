@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+struct team{
+    string name;
+    int score=0;
+};
+int main() {
+    int n;
+    string name;
+    cin>>n;
+    team* teams = new team[n];
+    bool isFound;
+    for(int i=0; i<n; i++) {
+        cin >> name;
+        isFound= false;
+        for (int j = 0; j < i + 1; j++) {
+            if (teams[j].name == name) {
+                teams[j].score++;
+                isFound = true;
+                break;
+            }
+        }
+        if (!isFound) {
+            teams[i].name = name;
+            teams[i].score++;
+        }
+    }
+    int max = 0;
+    int index;
+    for(int i=0; i<n; i++)
+    {
+        if(max<teams[i].score){
+            max=teams[i].score;
+            index=i;
+        }
+    }
+    cout<<teams[index].name;
+}
+
+
+
+

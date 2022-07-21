@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+    int serejaScore=0;
+    int dimaScore=0;
+int n;
+cin>>n;
+int *arr =new int [n];
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
+ int r=n-1;
+    int l=0;
+  for(int i=0; i<n; i++){
+      if(i%2==0){
+
+          if(arr[l]>arr[r])
+          {
+              serejaScore+=arr[l];
+              l++;
+          }
+          else {
+              serejaScore+=arr[r];
+              r--;
+          }
+      }
+      else{
+            if(arr[l]>arr[r])
+            {
+                dimaScore+=arr[l];
+                l++;
+            }
+            else {
+                dimaScore+=arr[r];
+                r--;
+            }
+        }
+
+    }
+    cout<<serejaScore <<" "<<dimaScore;
+}

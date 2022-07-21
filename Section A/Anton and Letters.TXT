@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+  string line;
+    getline(std::cin, line);
+  string lettersOnly;
+  int cnt=0;
+  for(int i =0; i<line.length(); i++){
+      if(line[i]!= '{' && line[i]!='}'&&line[i]!=','&&line[i]!=' ') {
+          lettersOnly += line[i];
+      }
+  }
+    sort(lettersOnly.begin(),lettersOnly.end());
+  for(int i=0; i<lettersOnly.length(); i++){
+      if(lettersOnly[i]!=lettersOnly[i+1]){
+          cnt++;
+      }
+  }
+ 
+//  for(int i=0; i<lettersOnly.length(); i++){
+//      cnt++;
+//     for(int j=0 ; j<i; j++){
+//          if(lettersOnly[i]==lettersOnly[j]){
+//              cnt--;
+//              break;
+//          }
+//      }
+//  }
+
+cout<<cnt;
+}

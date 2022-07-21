@@ -1,0 +1,44 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+struct segment {
+	int l, r;
+};
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	
+	int hash = 0, dots = 0;
+	int n = 4;
+	string cell[4];
+	for (int i = 0; i < 4; i++) {
+			cin >> cell[i];
+	}
+	bool flag = false;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 4; j++) {
+			if ((cell[i][j] == cell[i][j+1] && cell[i][j] == cell[i + 1][j + 1]) || 
+				(cell[i][j] == cell[i][j + 1] && cell[i][j] == cell[i + 1][j]) ||
+				(cell[i][j] == cell[i+1][j] && cell[i][j] == cell[i+1][j+1]) ||
+				cell[i][j] == cell[i+1][j] && cell[i][j] == cell[i + 1][j-1]) {
+				cout << "YES";
+				flag = true;
+				break;
+			}
+
+		}
+		if (flag)
+			break;
+	}
+	if (!flag)
+		cout << "NO";
+
+}

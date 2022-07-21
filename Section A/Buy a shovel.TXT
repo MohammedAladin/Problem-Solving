@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+#include "bits/stdc++.h"
+int main() {
+
+int rCoin,price;
+cin>>price>>rCoin;
+
+int orig=price;
+int numOfShovel=1;
+while(true){
+    price*=numOfShovel;
+    if(price%10==0 || price%10==rCoin){
+        break;
+    }
+    numOfShovel++;
+    price=orig;
+}
+cout<<numOfShovel;
+}
