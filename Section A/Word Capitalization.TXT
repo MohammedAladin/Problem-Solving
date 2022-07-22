@@ -1,0 +1,32 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	string word;
+	cin >> word;
+	word[0]=toupper(word[0]);
+	cout << word;
+
+	
+	
+	
+
+}
