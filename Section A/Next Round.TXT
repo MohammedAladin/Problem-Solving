@@ -1,0 +1,45 @@
+using namespace std;
+#include iostream
+#include string
+#include vector
+#include algorithm
+#include cmath
+
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	stdiossync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	int n, k;
+	cin  n  k;
+	int z = 0;
+	int arr = new int[n];
+	for (int i = 0; i  n; i++) {
+		cin  arr[i];
+		if (arr[i] == 0)
+			z++;
+	}
+	int a = arr[k - 1];
+	int cnt = 0;
+
+		for (int i = 0; i  n;i++) {
+			if (arr[i] = a && arr[i]  0)
+				cnt++;
+		}
+		cout  cnt;
+
+
+	
+	
+
+}
