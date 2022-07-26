@@ -1,0 +1,42 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <algorithm>
+#include <cmath>
+ 
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+struct labtop {
+	int price, quality;
+};
+bool perceed(labtop a, labtop b) {
+	return a.price > b.price;
+}
+int main() {
+	quick_io();
+	int n, p, q;
+	cin >> n;
+	int cnt = 0;
+	while(n) {
+		cin >> p >> q;
+		if (q - p >= 2)
+			cnt++;
+		n--;
+	}
+	cout << cnt;
+ 
+ 
+}
