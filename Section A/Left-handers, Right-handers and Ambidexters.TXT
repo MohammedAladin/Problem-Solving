@@ -1,0 +1,42 @@
+
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <algorithm>
+#include <cmath>
+ 
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+
+int main() {
+	quick_io();
+	int l,r,a;
+	cin >> l >> r >> a;
+	
+	while (a) {
+		if (l <= r)
+			l++;
+		else
+			r++;
+		a--;
+	}
+	if (l > r)
+		cout << 2 * r;
+	else
+		cout << 2 * l;
+	
+ 
+}
