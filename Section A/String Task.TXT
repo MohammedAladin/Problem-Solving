@@ -1,0 +1,38 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <algorithm>
+#include <cmath>
+ 
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	string word,res="";
+	cin >> word;
+	transform(word.begin(), word.end(), word.begin(), ::tolower);
+	for (int i = 0; i < word.size(); i++) {
+		
+		if (word[i] == 'o' || word[i] == 'a' || word[i] == 'e' || word[i] == 'u' || word[i] == 'y' || word[i] == 'i')
+			continue;
+		else
+		{
+			res += '.';
+			res += word[i];
+		}
+	}
+	cout << res;
+}
