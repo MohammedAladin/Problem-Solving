@@ -1,31 +1,41 @@
-#include <iostream>
 using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <algorithm>
+#include <cmath>
+
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
 int main() {
+	quick_io();
 	int n, k;
 	cin >> n >> k;
-	int* c = new int[2*n+1];
-	for (int i = 0; i < 2 * n + 1;i++)
-	{
-		cin >> c[i];
+	int* arr = new int[2*n+1];
+	for (int i = 0; i < 2 * n + 1;i++) {
+		cin >> arr[i];
 	}
-	if (n != 1) {
-		for (int i = 0; i < 2 * n + 1; i ++) {
-			if (i % 2 == 1 && (c[i]-1) > c[i - 1] && (c[i]-1) > c[i+1])
-				c[i]--;
-			else
-				continue;
+	int i = 1;
+	while (k) {
+		if (arr[i] - 1 > arr[i + 1] && arr[i] - 1 > arr[i - 1]) {
 			k--;
-			if (k == 0)
-				break;
+			arr[i]--;
 		}
+		i += 2;
 	}
-	else {
-		for (int i = 1; i < 2 * n + 1; i += 2) {
-			c[i]--;
-		}
+	for (int i = 0; i < 2 * n + 1;i++) {
+		cout<< arr[i] << " ";
 	}
-	for (int i = 0; i < 2 * n + 1;i++)
-	{
-		cout<< c[i]<<" ";
-	}	
 }
