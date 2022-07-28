@@ -6,6 +6,13 @@ using namespace std;
 #include <algorithm>
 #include <cmath>
  
+int ceilfunc(float num) {
+	int inum = (int)num;
+	if (num == (float)inum) {
+		return inum;
+	}
+	return inum + 1;
+}
 void quick_io()
 {
 	std::ios::sync_with_stdio(0);
