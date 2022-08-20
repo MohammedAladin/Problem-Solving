@@ -20,14 +20,12 @@ int main() {
 	int p, q, l, r;
 	cin >> p >> q >> l >> r;
 	int cnt(0);
-	vector<pair<int , int>> pi(p);
-	for (int i = 0; i < p;i++) {
-		cin >> pi[i].first >> pi[i].second;
-	}
+	vector<pair<int, int>> pi(p);
+	for (int i = 0; i < p;i++) cin >> pi[i].first >> pi[i].second;
+	
 	vector<pair<int, int>> qi(q);
-	for (int i = 0; i < q;i++) {
-		cin >> qi[i].first >> qi[i].second;
-	}
+	for (int i = 0; i < q;i++) cin >> qi[i].first >> qi[i].second;
+	
 	int freq[1004] = { 0 };
 	for (int t = l; t <= r;t++) {
 		for (int i = 0; i < q;i++) {
@@ -35,8 +33,7 @@ int main() {
 				int c = qi[i].first + t;
 				int d = qi[i].second + t;
 				if (d >= pi[j].first && c <= pi[j].second) {
-					if (freq[t] == 0)
-						freq[t]++;
+					freq[t]++;
 				}
 			}
 		}
@@ -46,5 +43,5 @@ int main() {
 			cnt++;
 	}
 	cout << cnt;
-	
+
 }
