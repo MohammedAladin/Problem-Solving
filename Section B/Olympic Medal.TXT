@@ -1,0 +1,50 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <iomanip>
+#include <cmath>
+
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+
+int main() {
+	quick_io();
+	int n;
+	cin >> n;
+	int* r1 = new int[n];
+	for (int i = 0; i < n;i++) cin >> r1[i];
+	double maxr = *max_element(r1, r1 + n);
+
+	int m;
+	cin >> m;
+	int* p1 = new int[m];
+	for (int i = 0; i < m;i++) {
+		cin >> p1[i];
+	}
+	int t;
+	cin >> t;
+	int* p2 = new int[t];
+	for (int i = 0; i < t;i++) cin >> p2[i];
+	
+	double minp2 = *min_element(p2, p2 + t);
+	int A, B;
+	cin >> A >> B;
+
+	double max = 0;
+	for (int j = 0; j < m; j++) {
+		double r2 =  maxr *  sqrt((B * p1[j])  / (A * minp2 + B * p1[j]));
+		if (r2 > max) {
+			max = r2;
+		}
+	}
+	cout << fixed << setprecision(12) << max;
+}
