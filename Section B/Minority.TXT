@@ -1,0 +1,43 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <algorithm>
+#include <cmath>
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+    int n;
+    cin >> n;
+    int* arr = new int[n];
+    
+    int max = 0;
+    while(n--){
+        string s;
+        cin >> s;
+        int cntOne = 0;
+        int cntZero = 0;
+        for (int j = 0; j < s.length() ; j++) {
+            if (s[j] == '1') {
+                cntOne++;
+            }
+            else
+                cntZero++;
+        }
+        if (cntZero > cntOne)
+            cout << cntOne<<endl;
+        else if (cntZero < cntOne)
+            cout<<cntZero<<endl;
+        else
+            cout<<cntOne-1<<endl;
+    }
+}
+
+

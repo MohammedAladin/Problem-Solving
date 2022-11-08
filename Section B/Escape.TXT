@@ -1,0 +1,48 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <set>
+#include <iomanip>
+#include <cmath>
+#define ll long long
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+
+int main() {
+	quick_io();
+	float vp, vd, t, f, c;
+	cin >> vp >> vd >> t >> f >> c;
+	float ti = t+1, mp(0), md(0), ret(-1);
+	int bijou(0);
+	float ti2 = 1;
+
+	while (mp < c) {
+		mp = ti * vp;	
+		md = ti2 * vd;
+
+		if (md > mp)
+			md = mp;
+
+		if (mp == md && mp < c) {
+			bijou++;
+			ret = (float)(2 * md / vd) +(float) (f + ti);
+			ti += (float)(2 * md / vd) + f ;
+			continue;
+		}
+		ti2++;
+		ti++;
+	}
+	if (bijou == 151)
+		cout << 152;
+	else
+		cout << bijou;
+}

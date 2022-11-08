@@ -1,0 +1,130 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <set>
+#include <iomanip>
+#include <cmath>
+ 
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	long long n, m, xc, yc, k;
+	cin >> n >> m >> xc >> yc >> k;
+	vector<pair<int, int>>v(k);
+	for (int i = 0;i < k;i++) {
+		cin >> v[i].first >> v[i].second;
+	}
+	long long steps(0);
+	long long diffx(0), diffy(0);
+	for (int i = 0; i < k;i++) {
+		if (v[i].first == 0 && v[i].second == 0)
+			continue;
+		if (v[i].first == 0) {
+			if(v[i].second>0)
+				diffy = (m - yc) / v[i].second;
+			else 
+				diffy = (1 - yc )/ v[i].second;
+			if (diffy <= 0)
+				continue;
+			steps +=diffy;
+			xc += diffy * v[i].first;
+			yc += diffy * v[i].second;
+		}
+		else if (v[i].second == 0) {
+			if (v[i].first> 0)
+				diffx = (n - xc) / v[i].first;
+			else
+				diffx = (1 - xc )/v[i].first;
+			
+			if (diffx <= 0 )
+				continue;
+			steps += diffx;
+			xc += diffx * v[i].first;
+			yc += diffx * v[i].second;
+		}
+		else {
+			if (v[i].second > 0)
+				diffy = (m - yc) / v[i].second;
+			else
+				diffy = (1 - yc )/ v[i].second;
+			if (v[i].first > 0)
+				diffx = (n - xc) / v[i].first;
+			else
+				diffx = (1 - xc) / v[i].first;
+ 
+			if (diffx <= 0 || diffy <= 0)
+				continue;
+			steps += min(diffx, diffy);
+			xc += min(diffx, diffy) * v[i].first;
+			yc += min(diffx, diffy) * v[i].second;
+			
+		}
+ 
+		
+ 
+		
+	}
+	cout << steps;
+}
+*****************************************************
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <set>
+#include <iomanip>
+#include <cmath>
+#define ll long long
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	ll n, m, xc, yc, k;
+	cin >> n >> m;
+	cin >> xc >> yc;
+	cin >> k;
+
+	ll steps = 0;
+	
+	while (k--){
+		ll a, b;
+		cin >> a >> b;
+		ll diffx = INT_MAX, diffy = INT_MAX;
+			
+		if (a < 0)
+			diffx = (1 - xc) / a;
+		else if (a > 0)
+			diffx = (n - xc) / a;
+
+		if (b < 0)
+			diffy = (1 - yc) / b;
+		
+		else if (b > 0)
+			diffy = (m - yc) / b;
+		
+		ll temp = min(diffx, diffy);
+		steps += temp;
+		xc += temp * a;
+		yc += temp * b;
+
+		}
+
+	cout << steps;
+}

@@ -1,0 +1,42 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <set>
+#include <iomanip>
+#include <cmath>
+#define ll long long
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+bool perceed(const pair<int,double>&a , const pair<int, double>& b){
+	if (a.second == b.second)
+		return a.first < b.first;
+	else
+		return a.second > b.second;
+}
+int main() {
+	quick_io();
+	int n, t1, t2, k;
+	cin >> n >> t1 >> t2 >> k;
+	double red = 1 - (double)k / 100;
+	double max;
+	vector<pair<int, double>>v(n);
+	int a, b;
+	for (int i = 0;i < n;i++) {
+		cin >> a >> b;
+		double maxi = std::max(a * t2 + b * t1 * red, a * t1 * red + b * t2);
+		v[i].first = i + 1; v[i].second = maxi;
+	}
+	sort(v.begin(), v.end(), perceed);
+	for (int i = 0; i < n;i++) {
+		cout << v[i].first << " " << fixed << setprecision(2) << v[i].second<<endl;
+	}
+}

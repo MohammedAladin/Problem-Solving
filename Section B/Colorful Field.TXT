@@ -1,0 +1,52 @@
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <cmath>
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+int main() {
+	quick_io();
+	int n , m , k , t;
+	string crops[3] = { "Grapes" ,"Carrots", "Kiwis" };
+	cin >> n >> m >> k >> t;
+	int** kArr = new int* [k];
+	int** tArr = new int* [t];
+	for (int i = 0; i < k; i++) {
+		kArr[i] = new int[2];
+		cin >> kArr[i][0] >> kArr[i][1];
+	}
+	for (int i = 0; i < t; i++) {
+		tArr[i] = new int[2];
+		cin >> tArr[i][0] >> tArr[i][1];
+	}
+	for (int i = 0; i < t; i++) {
+		bool flag = false;
+		int cnt = 0;
+		for (int j = 0; j < k; j++) {
+			if (kArr[j][0] == tArr[i][0] && kArr[j][1] == tArr[i][1])
+			{
+				cout << "Waste"<<endl;
+				flag = true;
+				break;
+			}
+		}
+		if (flag)
+			continue;
+		for (int j = 0; j < k; j++) {
+				if (tArr[i][0] > kArr[j][0] || tArr[i][0] == kArr[j][0] && kArr[j][1] < tArr[i][1])
+					cnt++;
+			}
+		int ind = (m * (tArr[i][0] - 1) + tArr[i][1] - cnt) % 3;
+		cout << crops[ind] << endl;
+	}
+	
+}

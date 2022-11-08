@@ -1,0 +1,41 @@
+
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <set>
+#include <iomanip>
+#include <cmath>
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+
+int main()
+{
+	int n, m;
+	cin >> n >> m;
+	int owes [105] = {0};
+	int debts [105] = {0};
+	
+	int a, b, c;
+	while (m--) {
+		cin >> a >> b >> c;
+		owes[a] += c;
+		debts[b] += c;
+	}
+	int sum = 0;
+
+	for (int i = 1; i <= n; i++) {
+		if (debts[i] < owes[i]) {
+			sum += owes[i] - debts[i];
+		}
+	}
+	cout << sum;
+}

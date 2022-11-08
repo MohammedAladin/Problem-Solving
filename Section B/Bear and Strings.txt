@@ -1,0 +1,44 @@
+
+using namespace std;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stack>
+#include <map>
+#include <algorithm>
+#include <set>
+#include <iomanip>
+#include <cmath>
+
+void quick_io()
+{
+	std::ios::sync_with_stdio(0);
+	cin.tie(NULL);
+	cout.tie(NULL);
+}
+
+int main()
+{
+	string str;
+	cin >> str;
+	int n = str.size();
+	int cnt = 0;
+	int i = 0;
+	while (i < n - 3) {
+		bool check = false;
+		for (int k = i; k < n - 3;k++) {
+			if (str[k] == 'b' && str[k + 1] == 'e' && str[k + 2] == 'a' && str[k + 3] == 'r') {
+				int last = k + 4;
+				int mul = n - last + 1;
+				int diff = k - i +1;
+				cnt += mul * (diff);
+				i = k + 1;
+				check = true;
+				break;
+			}
+		}
+		if(!check)
+			i++;
+	}
+	cout << cnt;
+}
